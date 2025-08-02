@@ -73,6 +73,13 @@ body {
     color: var(--primary-color);
 }
 
+.logo {
+    max-width: 100px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sutil sombra para resaltarlo */
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -551,6 +558,21 @@ section {
 
 .contact-details a:hover {
     color: var(--medium-brown);
+}
+
+.clickable-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 1em;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.clickable-card:hover {
+    background: #f0f4f8;
+    cursor: pointer;
 }
 
 .cta-section {
