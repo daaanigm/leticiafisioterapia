@@ -41,6 +41,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    height: 140px;
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -50,6 +51,7 @@ body {
 }
 
 .nav-bar.scrolled {
+    height: 70px;
     background: rgba(255, 255, 255, 0.98);
     box-shadow: var(--shadow);
 }
@@ -77,7 +79,13 @@ body {
     max-width: 100px;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sutil sombra para resaltarlo */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 3001;
+}
+
+.nav-bar.scrolled .logo {
+    max-width: 40px;
+    transition: max-width 0.3s;
 }
 
 .nav-menu {
@@ -688,6 +696,27 @@ section {
     }
 }
 
+.nav-bar.scrolled .hamburger {
+    top: 25px; /* sube el botón */
+    position: absolute;
+    right: 2rem;
+    left: auto;
+    transform: translateY(0);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centra el botón hamburguesa verticalmente en el header normal */
+.nav-bar .hamburger {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    left: auto;
+    transform: translateY(-50%);
+    justify-content: center;
+    align-items: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
@@ -697,7 +726,7 @@ section {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 140px;
         flex-direction: column;
         background: var(--white);
         width: 100%;
@@ -706,9 +735,20 @@ section {
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         gap: 0;
         padding: 2rem 0;
+        z-index: 2000;
+    }
+
+    .nav-bar.scrolled + .nav-container .nav-menu,
+    .nav-menu.scrolled {
+        top: 70px !important;
     }
 
     .nav-menu.active {
+        top: 140px;
+        left: 0;
+    }
+    .nav-menu.active.scrolled {
+        top: 70px !important;
         left: 0;
     }
 
